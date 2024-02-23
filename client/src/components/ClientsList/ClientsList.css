@@ -1,0 +1,78 @@
+.container{
+    width: 1070px;
+    border: 1px solid black;
+    height: auto;
+    background-color: white;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+    border-radius: 5px;
+    margin: 50px auto;
+    padding: 50px;
+    
+}
+
+.sub-container{
+width: 100%;
+text-align: left;
+}
+
+.bold-font{
+    font-weight: 600;
+}
+
+.add-client-btn{
+    text-decoration: none;
+    border: none;
+    background: purple;
+    padding: 9px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+    transition: background-color 0.3s;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.add-client-btn:active {
+    background-color: blueviolet;
+  }
+
+  .client-table{
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 100%;
+  }
+
+  .client-table thead th{
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+  }
+
+  .client-table tbody td{
+    padding: 10px;
+    text-align: center;
+  }
+
+  .client-table .action-btns button{
+    border: 0;
+    outline: none;
+    background: red;
+    padding: 8px 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .client-table .action-btns a{
+    border: 0;
+    outline: none;
+    background: green;
+    padding: 6px 10px;
+    margin: 0 10px;  
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
