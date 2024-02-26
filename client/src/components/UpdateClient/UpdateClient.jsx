@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './UpdateClient.css'
 import { Link, useParams } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function UpdateClient() {
 
@@ -39,6 +41,10 @@ function UpdateClient() {
         })
         const jsonServerResponse = await serverResponse.json()
         console.log(jsonServerResponse)
+
+        if (jsonServerResponse.success) {
+            toast("Client Updated Successfully!")
+        }
     }
 
 
@@ -71,6 +77,9 @@ function UpdateClient() {
                     <button type='submit'>Update Client</button>
                 </div>
             </form>
+            <div>
+                <ToastContainer theme='dark' />
+            </div>
         </div>
     )
 }

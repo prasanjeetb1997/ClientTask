@@ -4,9 +4,13 @@ async function createClient(req, res) {
 
     try {
         const dbresponse = await clientModel.create(req.body)
-        return res.send(dbresponse)
+        return res.status(201).json({
+            success: true,
+            dbresponse
+        })
 
     } catch (error) {
+        console.log(error)
         res.send(error)
     }
 }
@@ -52,7 +56,10 @@ async function updateClient(req, res) {
 
     try {
         const dbresponse = await clientModel.findByIdAndUpdate(req.params.id, req.body)
-        return res.send(dbresponse)
+        return res.status(200).json({
+            success: true,
+            dbresponse
+        })
 
     } catch (error) {
         res.send(error)

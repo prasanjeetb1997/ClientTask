@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './NewClient.css'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function NewClient() {
 
@@ -14,20 +16,29 @@ function NewClient() {
     };
 
 
+
+
     // sending form data to server
     async function handleForm(event) {
 
         event.preventDefault()
 
         const serverResponse = await fetch("http://localhost:5000/create", {
-            headers : {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             method: "POST",
             body: JSON.stringify(formData),
         })
 
         const jsonServerResponse = await serverResponse.json()
         console.log(jsonServerResponse)
+
+        if (jsonServerResponse.success) {
+            toast("New Client Added!");
+        } else if (jsonServerResponse.code === 11000) {
+            toast("This email is already used! Try different one")
+        }
     }
+
 
 
     return (
@@ -59,6 +70,9 @@ function NewClient() {
                     <button type='submit'>Create Client</button>
                 </div>
             </form>
+            <div>
+                <ToastContainer theme='dark' />
+            </div>
         </div>
     )
 }
