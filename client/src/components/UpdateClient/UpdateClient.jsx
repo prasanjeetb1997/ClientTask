@@ -9,7 +9,7 @@ function UpdateClient() {
     const formTemplate = { fname: '', lname: '', email: '', mobile: '', project: '' }
 
     const [formData, setFormData] = useState(formTemplate)
-
+    const [isFetching, setIsFetching] = useState(false)
 
     // getting id from URL
     const { id } = useParams()
@@ -34,6 +34,7 @@ function UpdateClient() {
 
         event.preventDefault()
 
+        setIsFetching(true)
         const serverResponse = await fetch(`http://localhost:5000/client/${id}`, {
             headers: { "Content-Type": "application/json" },
             method: "PUT",
@@ -42,6 +43,7 @@ function UpdateClient() {
         const jsonServerResponse = await serverResponse.json()
         console.log(jsonServerResponse)
 
+        setIsFetching(false)
         if (jsonServerResponse.success) {
             toast("Client Updated Successfully!")
         }
@@ -74,7 +76,7 @@ function UpdateClient() {
                     <input onChange={handleChange} value={formData.project} type="text" id='project' name='project' placeholder='Project' required />
                 </div>
                 <div className='input-group'>
-                    <button type='submit'>Update Client</button>
+                    <button hidden={isFetching} type='submit'>Update Client</button>
                 </div>
             </form>
             <div>

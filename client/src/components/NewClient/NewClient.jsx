@@ -9,6 +9,7 @@ function NewClient() {
     const formTemplate = { fname: '', lname: '', email: '', mobile: '', project: '' }
 
     const [formData, setFormData] = useState(formTemplate)
+    const [isFetching, setIsFetching] = useState(false)
 
 
     const handleChange = (e) => {
@@ -23,6 +24,7 @@ function NewClient() {
 
         event.preventDefault()
 
+        setIsFetching(true)
         const serverResponse = await fetch("http://localhost:5000/create", {
             headers: { "Content-Type": "application/json" },
             method: "POST",
@@ -32,6 +34,7 @@ function NewClient() {
         const jsonServerResponse = await serverResponse.json()
         console.log(jsonServerResponse)
 
+        setIsFetching(false)
         if (jsonServerResponse.success) {
             toast("New Client Added!");
         } else if (jsonServerResponse.code === 11000) {
@@ -67,7 +70,7 @@ function NewClient() {
                     <input onChange={handleChange} value={formData.project} type="text" id='project' name='project' placeholder='Project' required />
                 </div>
                 <div className='input-group'>
-                    <button type='submit'>Create Client</button>
+                    <button hidden={isFetching} type='submit'>Create Client</button>
                 </div>
             </form>
             <div>

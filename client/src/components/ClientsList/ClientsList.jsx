@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './ClientsList.css'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ClientsList() {
 
@@ -25,6 +27,7 @@ function ClientsList() {
         const jsonServerResponse = await serverResponse.json()
         console.log(jsonServerResponse)
         setDeletedClient(jsonServerResponse)
+        toast("Client deleted successfully!")
     }
 
     return (
@@ -56,6 +59,9 @@ function ClientsList() {
                             ))}
                     </tbody>
                 </table>
+            </div>
+            <div>
+                <ToastContainer theme='dark' />
             </div>
         </div>
     )
