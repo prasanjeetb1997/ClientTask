@@ -6,9 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function ClientsList() {
 
-    const [clients, setClients] = useState()
+    const [clients, setClients] = useState([])
     const [deletedClient, setDeletedClient] = useState()
 
+    console.log(clients)
 
     useEffect(() => {
         fetch("http://localhost:5000/all")
@@ -46,7 +47,7 @@ function ClientsList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {clients &&
+                        {clients.length !== 0 ?
                             clients.map((client, index) => (
                                 <tr key={index}>
                                     <td>{client.fname}</td>
@@ -56,7 +57,8 @@ function ClientsList() {
                                     <td>{client.project}</td>
                                     <td className='action-btns'><button onClick={() => { handleDelete(client._id) }}>Delete</button><Link to={`/update/${client._id}`}>Edit</Link></td>
                                 </tr>
-                            ))}
+                            )) : <tr><td colSpan={6}><h2 style={{margin:"3vh auto"}}>No clients added</h2></td></tr>
+                        }
                     </tbody>
                 </table>
             </div>

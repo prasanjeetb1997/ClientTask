@@ -1,0 +1,97 @@
+.test-container {
+    border: 1px solid;
+    margin: 150px auto;
+    padding: 70px 0;
+    width: 80vw;
+}
+
+.test-container>div{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.add-client-button {
+    margin-bottom: 20px;
+    border: 0;
+    line-height: 2.3;
+    padding: 0 15px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 3px;
+    background-color: purple;
+    box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.add-client-button:active {
+    box-shadow:
+      inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+      inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+  }
+
+.clients-table {
+    border-collapse: collapse;
+  text-align: center;
+}
+
+thead tr th{
+    padding: 10px;
+  }
+
+tbody tr td{
+    padding: 10px;
+  }
+
+tbody tr td:nth-child(6){
+  padding: 10px;
+  display: flex;
+  border-color: #fff;
+}
+
+
+.del-button{
+ 
+    border: 0;
+    line-height: 2.5;
+    padding: 0 12px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 5px;
+    background-color: darkred;
+    box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.del-button:active {
+    box-shadow:
+      inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+      inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+  }
+
+.edit-button{
+ margin-left: 10px;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 12px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 5px;
+    background-color: darkgreen;
+    box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.edit-button:active {
+    box-shadow:
+      inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+      inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+  }
